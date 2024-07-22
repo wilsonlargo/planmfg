@@ -1,7 +1,7 @@
 const GLOBAL = {
     state: {
-        proyecto: null,
-        proyectos: [],
+        vigencia: null,
+        vigencias: [],
         usuario: null,
         usuarios: [],
     },
@@ -12,17 +12,13 @@ function IniCredential(){
     //Lee la información del formulario de ingreso en index.html
     const email = document.getElementById("inEmail").value
     const password = document.getElementById("inPass").value
-    //Evoca la función global de ingreso, en archivo (dataconfig.js) 
     GLOBAL.firestore.CredentialIn(email,password)
-
 }
-
 function SignOut(){
     GLOBAL.firestore.CredentialOut()
 }
 function open_page(){
     location.href = "../app-plan/app-plan.html"
-
 }
 
 //Funcion para mostrar un mensaje
@@ -30,6 +26,7 @@ function mensajes(text, color) {
     Toastify({
         text: text,
         duration: 3000,
+        className: "border border-1 rounded text-white",
         destination: "",
         newWindow: true,
         close: true,
